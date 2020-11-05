@@ -1,0 +1,58 @@
+<mvc:View controllerName="com.yash.Assignment-7.controller.CategoryList" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:ux="sap.uxap">
+	<App>
+		<pages>
+			<Page id="page">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button type="Back" press=".goBack"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title id="employeeTitle" text="{i18n>CatgoryTitle}"/>
+						</contentMiddle>
+						<contentRight>
+							<Toolbar>
+								<Button type="Transparent" icon="sap-icon://globe" iconFirst="true" press=".showLanguages" tooltip="{i18n>languageButton}"/>
+								<Select id="typeOfControls" icon="sap-icon://drop-down-list" width="30px" type="IconOnly" tooltip="Control List">
+									<core:Item key="1" text="{i18n>typeOfControlItem1}"/>
+									<core:Item key="2" text="{i18n>typeOfControlItem2}"/>
+									<core:Item key="3" text="{i18n>typeOfControlItem3}l"/>
+									<core:Item key="4" text="{i18n>typeOfControlItem4}"/>
+								</Select>
+								<Text id="appVersion" text="{i18n>appVersion}"/>
+							</Toolbar>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<ux:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true">
+						<ux:headerTitle>
+							<ux:ObjectPageDynamicHeaderTitle>
+								<ux:heading>
+									<Title id="totalRecords"/>
+								</ux:heading>
+								<ux:actions>
+									<OverflowToolbarButton id="sortUser" icon="sap-icon://sort" press=".handleSortButtonPressed"/>
+								</ux:actions>
+							</ux:ObjectPageDynamicHeaderTitle>
+						</ux:headerTitle>
+						<ux:sections>
+							<ux:ObjectPageSection showTitle="false" class="section-background">
+								<ux:subSections>
+									<ux:ObjectPageSubSection>
+										<List id="categoryList" items="{/Categories}" updateFinished="showTotalRecords" itemPress=".onCategoryListItemPress">
+											<ObjectListItem title="{CategoryName}" type="Active" number="{CategoryID}">
+												<ObjectAttribute text="Description: {Description}"/>
+											</ObjectListItem>
+										</List>
+									</ux:ObjectPageSubSection>
+								</ux:subSections>
+							</ux:ObjectPageSection>
+						</ux:sections>
+					</ux:ObjectPageLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover title="Employee Inforamtion">
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Close" press="handleActionPress"/>
+			</OverflowToolbar>
+		</footer>
+		<List items="{/EmployeeInfo}" headerText="{ID}">
+			<ObjectListItem title="{Name}" type="Active" number="Employee Id: {EmployeeId}">
+				<ObjectAttribute text="Email: {YashEmail}"/>
+				<ObjectAttribute text="Designation: {Designation}"/>
+			</ObjectListItem>
+		</List>
+	</Popover>
+</core:FragmentDefinition>

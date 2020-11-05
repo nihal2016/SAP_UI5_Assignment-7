@@ -1,0 +1,110 @@
+<mvc:View width="100%" height="100%" controllerName="com.yash.Assignment-7.controller.EmployeesList" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:ux="sap.uxap">
+	<App id="app">
+		<pages>
+			<Page id="page">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button type="Default" icon="sap-icon://private" iconFirst="true" text="{i18n>loggedInUserButton}" press=".showLoggedInUserDetails"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title id="employeeTitle" text="{i18n>employeeTitle}"/>
+						</contentMiddle>
+						<contentRight>
+							<Toolbar>
+								<Button type="Transparent" icon="sap-icon://globe" iconFirst="true" press=".showLanguages" tooltip="{i18n>languageButton}"/>
+								<Select id="typeOfControls" icon="sap-icon://drop-down-list" width="30px" type="IconOnly" tooltip="Control List">
+									<core:Item key="1" text="{i18n>typeOfControlItem1}"/>
+									<core:Item key="2" text="{i18n>typeOfControlItem2}"/>
+									<core:Item key="3" text="{i18n>typeOfControlItem3}l"/>
+									<core:Item key="4" text="{i18n>typeOfControlItem4}"/>
+								</Select>
+								<Text id="appVersion" text="{i18n>appVersion}"/>
+							</Toolbar>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<footer>
+					<OverflowToolbar id="idCartFooter">
+						<ToolbarSpacer/>
+						<Button id="nextButton" width="10rem" type="Emphasized" text="{i18n>next}" press=".onNext"/>
+					</OverflowToolbar>
+				</footer>
+				<content>
+					<ux:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true">
+						<ux:headerTitle>
+							<ux:ObjectPageDynamicHeaderTitle>
+								<ux:heading>
+									<Title id="totalRecords"/>
+								</ux:heading>
+								<ux:actions>
+									<ToggleButton id="toggelEditButton" visible="true" icon="sap-icon://edit" pressed="false" press=".showEdit"/>
+									<Button id="deleteUser" visible="false" type="Reject" text="{i18n>deleteUserButton}" press=".deleteUser"/>
+									<Button id="addUser" type="Accept" icon="sap-icon://add-employee" press=".addUser"/>
+									<OverflowToolbarButton id="sortUser" icon="sap-icon://sort" press=".handleSortButtonPressed"/>
+									<OverflowToolbarButton id="userListSetting" icon="sap-icon://action-settings" press=".userListSetting"/>
+								</ux:actions>
+							</ux:ObjectPageDynamicHeaderTitle>
+						</ux:headerTitle>
+						<ux:sections>
+							<ux:ObjectPageSection showTitle="false" class="section-background">
+								<ux:subSections>
+									<ux:ObjectPageSubSection>
+										<Table id="employeesListTable" mode="None" growing="true" growingThreshold="4" growingScrollToLoad="false"
+											updateFinished="countTotalEmployees" items="{/EmployeesData}">
+											<columns>
+												<Column width="12em">
+													<Text text="{i18n>employeesListTableEmployeeIdColumn}"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true">
+													<Text text="{i18n>employeesListTableNameColumn}"/>
+												</Column>
+												<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+													<Text text="{i18n>employeesListTableTitleColumn}"/>
+												</Column>
+												<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+													<Text text="{i18n>employeesListTableBirthDateColumn}"/>
+												</Column>
+												<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+													<Text text="{i18n>employeesListTableAddressColumn}"/>
+												</Column>
+												<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+													<Text text="{i18n>employeesListTableCityColumn}"/>
+												</Column>
+												<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+													<Text text="{i18n>employeesListTableRegionColumn}"/>
+												</Column>
+												<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+													<Text text="{i18n>employeesListTableCountryColumn}"/>
+												</Column>
+												<Column hAlign="End">
+													<Text text="{i18n>employeesListTableHireDateColumn}"/>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem vAlign="Middle" type="Active" press=".goToEmployeePage">
+													<cells>
+														<ObjectIdentifier title="{i18n>employeesListTableEmployeeIdColumnCellTitle}" text="{EmployeeID}"/>
+														<Text text="{FirstName} {LastName}"/>
+														<Text text="{Title}"/>
+														<Text text="{parts:['BirthDate'],formatter:'.formatter.date'}"/>
+														<Text text="{Address}"/>
+														<Text text="{City}"/>
+														<Text text="{Region}"/>
+														<Text text="{Country}"/>
+														<Text text="{parts:['HireDate'],formatter:'.formatter.date'}"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+									</ux:ObjectPageSubSection>
+								</ux:subSections>
+							</ux:ObjectPageSection>
+						</ux:sections>
+					</ux:ObjectPageLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

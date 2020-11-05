@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout">
+	<Dialog title="Product Info" binding="{}">
+		<QuickViewCard navigate=".onNavigate" afterNavigate=".onAfterNavigate">
+			<QuickViewPage title="{ProductID}" description="{ProductName}">
+				<QuickViewGroup heading="Product Info">
+					<QuickViewGroupElement label="SupplierID" value="{SupplierID}"></QuickViewGroupElement>
+					<QuickViewGroupElement label="CategoryID" value="{CategoryID}"></QuickViewGroupElement>
+					<QuickViewGroupElement label="QuantityPerUnit" value="{QuantityPerUnit}"></QuickViewGroupElement>
+					<QuickViewGroupElement label="UnitPrice" value="{UnitPrice}"></QuickViewGroupElement>
+					<QuickViewGroupElement label="UnitsInStock" value="{UnitsInStock}"></QuickViewGroupElement>
+					<QuickViewGroupElement label="Discontinued" value="{parts:['Discontinued'],formatter:'.formatter.discontinued'}"></QuickViewGroupElement>
+				</QuickViewGroup>
+			</QuickViewPage>
+		</QuickViewCard>
+		<beginButton>
+			<Button text="close" press=".onCloseDialog"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

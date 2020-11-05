@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<m:Dialog title="Product Info">
+		<l:Grid containerQuery="true" defaultSpan="XL3 L3 M6 S12">
+			<form:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+				adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<form:content>
+					<m:Label text="{i18n>EmployeeInfoFirstName}"/>
+					<m:Input id="FirstName"/>
+					<m:Label text="{i18n>EmployeeInfoLastName}"/>
+					<m:Input id="LastName"/>
+					<m:Label text="{i18n>EmployeeInfoTitle}"/>
+					<m:Input id="Title"/>
+					<m:Label text="{i18n>EmployeeInfoBirthDate}"/>
+					<m:DateTimePicker id="BirthDate"/>
+					<m:Label text="{i18n>EmployeeInfoAddress}"/>
+					<m:Input id="Address"/>
+					<m:Label text="{i18n>EmployeeInfoCity}"/>
+					<m:Input id="City"/>
+					<m:Label text="{i18n>EmployeeInfoRegion}"/>
+					<m:Input id="Region"/>
+					<m:Label text="{i18n>EmployeeInfoPostalCode}"/>
+					<m:Input id="PostalCode"/>
+					<m:Label text="{i18n>EmployeeInfoCountry}"/>
+					<m:Input id="Country"/>
+					<m:Label text="{i18n>EmployeeInfoHomePhone}"/>
+					<m:Input id="HomePhone"/>
+					<m:Label text="{i18n>EmployeeInfoExtension}"/>
+					<m:Input id="Extension"/>
+					<m:Label text="{i18n>EmployeeInfoHireDate}"/>
+					<m:DateTimePicker id="HireDate"/>
+					<m:Button text="Save" type="Emphasized" press=".saveUser"/>
+				</form:content>
+			</form:SimpleForm>
+		</l:Grid>
+		<m:endButton>
+			<m:Button text="close" press=".onCloseDialog"></m:Button>
+		</m:endButton>
+	</m:Dialog>
+</core:FragmentDefinition>

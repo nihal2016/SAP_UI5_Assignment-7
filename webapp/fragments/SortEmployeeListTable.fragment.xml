@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="EmployeeID" key="EmployeeID" selected="true"/>
+			<ViewSettingsItem text="Name" key="FirstName"/>
+			<ViewSettingsItem text="Title" key="Title"/>
+			<ViewSettingsItem text="Hire Date" key="HireDate"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
